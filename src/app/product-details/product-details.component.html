@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="card col-lg-6 m-2">
+      <img [src]="product.image" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h3 class="card-title">{{ product.title }}</h3>
+        <h5>{{ product.price }} $</h5>
+        <p>{{ product.description }}</p>
+        <p>{{product.rating.rate}}</p>
+        <div class="clip" [style.width.px]="product.rating.rate * 15">
+          <div style="width: 75px;">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+        </div>
+        <button
+          class="btn btn-warning d-block m-1"
+          [routerLink]="['/productdetails', product.id]"
+        >
+          see Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

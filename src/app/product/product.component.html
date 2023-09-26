@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="card col-lg-3 m-2" *ngFor="let product of allProducts">
+      <img [src]="product.image" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h3 class="card-title">{{ product.title }}</h3>
+        <h5>{{ product.price }} $</h5>
+        <p>{{ product.description }}</p>
+        <button
+          class="btn btn-warning d-block m-1"
+          [routerLink]="['/productdetails', product.id]"
+        >
+          see Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container my-5">
+  <mat-paginator
+    [length]="totalProducts"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 20]"
+    aria-label="Select page"
+    (page)="changePage($event)"
+  >
+  </mat-paginator>
+</div>
